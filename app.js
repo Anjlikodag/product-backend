@@ -6,20 +6,20 @@ const mongoose = require("mongoose");
 
 const PORT = 4001;
 
-const apiRouter = require("./routes/apis");
+//const apiRouter = require("./routes/apis");
 
 app.use(logger("dev"));
 app.use(express.json({ limit: "5mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect("mongodb://localhost:27017/mongooseTest")
-.then(res => console.log(`Mongoose connected to db successfully ${res}`))
-.catch(err => console.log(`Mongoose connection to db failed ${err.message}`));
+.then(res => console.log(`Mongoose connected to db successfully`))
+.catch(err => console.log(`Mongoose connection to db failed`));
 
-app.use("/api",apiRouter);
+//app.use("/api",apiRouter);
 
 console.log("let's start")
 
 app.listen(PORT, () => {
-    console.log(`Server is connected.at adreess ${PORT}`);
+    console.log(`Server is connected at adreess ${PORT}`);
 })
